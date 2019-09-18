@@ -1,3 +1,5 @@
+
+
 node{
    stage('SCM Checkout'){
      git 'https://github.com/javahometech/my-app'
@@ -12,7 +14,8 @@ node{
    stage('SonarQube Analysis') {
         def mvnHome =  tool name: 'maven-3', type: 'maven'
         withSonarQubeEnv('SonarQube') { 
-          sh "${mvnHome}/bin/mvn sonar:sonar"
+          //sh "${mvnHome}/bin/mvn sonar:sonar"
+          sh "mvn sonar:sonar -Dsonar.projectKey=Test -Dsonar.host.url=http://192.168.19.130:9050 -Dsonar.login=60749e847a19b33d8e045ccffd76be13f3586df5"
         }
     }
 
