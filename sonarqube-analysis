@@ -19,7 +19,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                withSonarQubeEnv('SonarQube') { 
-                  sh "mvn sonar:sonar -Dsonar.projectKey=Test -Dsonar.host.url=http://192.168.19.130:9050 -Dsonar.login=60749e847a19b33d8e045ccffd76be13f3586df5"
+                  
                }
             }
        }
