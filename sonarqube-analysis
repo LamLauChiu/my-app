@@ -16,6 +16,12 @@ pipeline {
                 sh 'mvn -B -DskipTests clean install package'
             }
         }
+        stage('Build docker image') {
+            steps {
+                echo "start build docker image"
+                sh "docker build -t test . "
+            }
+        }
         stage('SonarQube Analysis') {
             steps {
                withSonarQubeEnv('SonarQube') { 
